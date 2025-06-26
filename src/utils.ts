@@ -19,7 +19,7 @@ export function clone<T>(obj: T): T {
 export function findBazelWorkspaceRoot(cwd: string): string | undefined {
     let current = cwd;
     while (current !== "/") {
-        for (let marker of ["MODULE.bazel", "MODUL", "WORKSPACE.bazel", "WORKSPACE"]) {
+        for (let marker of ["MODULE.bazel", "MODULE", "WORKSPACE.bazel", "WORKSPACE"]) {
             const markerPath = path.join(current, marker);
             if (fs.existsSync(markerPath) && fs.statSync(markerPath).isDirectory() === false) {
                 return current;
